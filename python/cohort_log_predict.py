@@ -73,7 +73,7 @@ class CohortLogPredictor:
 
     def half_life(self):
         """Days until retention drops to 50% of Day 1."""
-        return np.power(0.5 / self.a, 1.0 / self.b) if self.b < 0 else np.inf
+        return np.power(0.5, 1.0 / self.b) if self.b < 0 else np.inf
 
     def lifetime_value_days(self, threshold=0.01):
         """Days until retention drops below threshold (e.g., 1%)."""
@@ -83,7 +83,7 @@ class CohortLogPredictor:
         """Print predictive summary."""
         predictions = self.predict_days([1, 3, 7, 14, 30, 60, 90, 180, 365])
         print(f"\n{'='*55}")
-        print(f"  📊 {self.label} — 2-Point Logarithmic Prediction")
+        print(f"  {self.label} — 2-Point Logarithmic Prediction")
         print(f"{'='*55}")
         print(f"  Day 1:  {self.r1:.1%}  (observed)")
         print(f"  Day 7:  {self.r2:.1%}  (observed)")
@@ -98,8 +98,8 @@ class CohortLogPredictor:
         print(f"{'─'*55}")
         hl = self.half_life()
         lv = self.lifetime_value_days(0.01)
-        print(f"  ⏱  Half-life (50% of D1):  {hl:.0f} days")
-        print(f"  📉 Lifetime (to 1%):      {lv:.0f} days ({lv/30:.0f} months)")
+        print(f"  Half-life (50% of D1):  {hl:.0f} days")
+        print(f"  Lifetime (to 1%):      {lv:.0f} days ({lv/30:.0f} months)")
         print(f"{'='*55}\n")
 
     def _r2_self(self):

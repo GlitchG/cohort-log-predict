@@ -52,15 +52,15 @@ Cohort: 2025-Q1 Users
 ────────────────────────────────────────
   Day 1:  45.0%  (observed)
   Day 7:  18.0%  (observed)
-  Model:  retention(t) = 0.4500 · t^-0.4700
+  Model:  retention(t) = 0.4500 * t^-0.4709
 
-  Day 30:    8.1%
-  Day 90:    3.7%
-  Day 180:   2.1%
-  Day 365:   1.1%
+  Day 30:    9.1%
+  Day 90:    5.4%
+  Day 180:   3.9%
+  Day 365:   2.8%
 
-  Half-life: 25 days
-  Lifetime:  340 days
+  Half-life: 4 days
+  Lifetime:  3243 days (108 months)
 ```
 
 ## Step-by-step: from raw data to forecast
