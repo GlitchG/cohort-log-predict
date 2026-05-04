@@ -8,7 +8,7 @@ WITH user_first_visit AS (
   SELECT
     user_pseudo_id,
     DATE_TRUNC(MIN(PARSE_DATE('%Y%m%d', event_date)), WEEK(MONDAY)) AS cohort_week
-  FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+  FROM `YOUR_PROJECT.YOUR_DATASET.events_*`
   WHERE _TABLE_SUFFIX BETWEEN '20210101' AND '20221231'
   GROUP BY 1
 ),
@@ -17,7 +17,7 @@ user_activity AS (
   SELECT
     user_pseudo_id,
     PARSE_DATE('%Y%m%d', event_date) AS event_date
-  FROM `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
+  FROM `YOUR_PROJECT.YOUR_DATASET.events_*`
   WHERE _TABLE_SUFFIX BETWEEN '20210101' AND '20221231'
   GROUP BY 1, 2
 ),
